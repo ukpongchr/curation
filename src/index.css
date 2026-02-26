@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  --color-background: #050507;
+  --color-surface: #0A0A0F;
+  --color-surface-light: #12121A;
+  
+  /* Branding Colors */
+  --color-primary: #00A3DA; /* Logo Accent Blue - Used for buttons/highlights */
+  --color-primary-dim: #0081ad;
+  --color-brand-dark: #006B95; /* Primary Brand Blue - Used for main logo text */
+  --color-brand-active: #8E44AD; /* Active/Home Text - Purple */
+  
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #8E9299;
+  --color-accent-green: #10B981;
+  --color-accent-red: #EF4444;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-main font-sans antialiased selection:bg-primary/30;
+  }
+}
