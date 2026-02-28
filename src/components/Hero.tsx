@@ -17,7 +17,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-24 md:pt-32 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-surface-light -z-20" />
       
@@ -51,24 +51,24 @@ export function Hero() {
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         
         {/* Left Column: Text */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           <div>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex items-center gap-4 mb-6"
+              className="flex items-center gap-4 mb-4"
             >
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase">
+              <div className="h-px w-8 md:w-12 bg-primary" />
+              <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-primary uppercase">
                 Real-Time Content Intelligence
               </span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.1] mb-4 md:mb-6">
               <motion.span custom={0} variants={textVariants} initial="hidden" animate="visible" className="block">
                 Authenticate
               </motion.span>
@@ -85,7 +85,7 @@ export function Hero() {
               variants={textVariants} 
               initial="hidden" 
               animate="visible"
-              className="text-gray-400 max-w-md leading-relaxed text-sm md:text-base font-light"
+              className="text-gray-400 max-w-md leading-relaxed text-sm md:text-base font-light mb-6"
             >
               Curation AI™ verifies images, video, audio, documents, and text in seconds. 
               Detect deepfakes, AI-generated content, and misinformation before it spreads.
@@ -96,20 +96,35 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-4"
           >
             <Link 
               to="/start-free-trial"
-              className="bg-white text-black px-8 py-4 font-mono text-xs font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors inline-block text-center"
+              className="bg-white text-black px-8 py-4 font-mono text-xs font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors inline-block text-center rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
             >
               Get Started
             </Link>
             <Link 
               to="/demo"
-              className="border border-white/20 text-white px-8 py-4 font-mono text-xs font-bold tracking-widest uppercase hover:bg-white/5 transition-colors inline-block text-center"
+              className="border border-white/20 text-white px-8 py-4 font-mono text-xs font-bold tracking-widest uppercase hover:bg-white/5 transition-colors inline-block text-center rounded-sm"
             >
               View Demo
             </Link>
+          </motion.div>
+
+          {/* Conversion Micro-copy */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex items-center gap-4 text-[10px] md:text-xs text-gray-500 font-mono"
+          >
+            <span className="flex items-center gap-1">
+              <span className="text-primary">✓</span> 14-day free trial
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-primary">✓</span> No credit card required
+            </span>
           </motion.div>
 
           {/* Trust Indicators */}
@@ -117,10 +132,10 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 1 }}
-            className="pt-12 border-t border-white/5 flex gap-8"
+            className="pt-8 border-t border-white/5 flex gap-6 md:gap-8"
           >
             {["SOC2 Compliant", "GDPR Ready", "ISO 27001"].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-xs text-gray-500 font-mono uppercase">
+              <div key={item} className="flex items-center gap-2 text-[10px] md:text-xs text-gray-500 font-mono uppercase">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                 {item}
               </div>
@@ -133,9 +148,19 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="relative"
+          className="relative hidden lg:block"
         >
           <AnalysisCard />
+        </motion.div>
+        
+        {/* Mobile-only scaled card (optional, or just hide it to save space if needed, but user wants faces) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="relative lg:hidden mt-8"
+        >
+           <AnalysisCard />
         </motion.div>
 
       </div>

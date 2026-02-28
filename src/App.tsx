@@ -15,6 +15,7 @@ import { FAQ } from "./components/FAQ";
 import { ContactSection } from "./components/ContactSection";
 import { UseCasesSection } from "./components/UseCasesSection";
 import { HowItWorksSection } from "./components/HowItWorksSection";
+import { StickyMobileCTA } from "./components/StickyMobileCTA";
 import { SEO } from "./components/SEO";
 
 import { Platform } from "./pages/Platform";
@@ -37,6 +38,7 @@ function HomePage() {
       <FAQ />
       <CallToAction />
       <ContactSection />
+      <StickyMobileCTA />
     </>
   );
 }
